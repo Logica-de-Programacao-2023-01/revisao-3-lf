@@ -8,5 +8,14 @@ package q1
 //Você pode retornar a resposta em qualquer ordem.
 
 func TwoSum(nums []int, target int) []int {
+	indices := []int{}
+	for i, acessonum := range nums {
+		for j, outroacesso := range nums {
+			if i != j && acessonum+outroacesso == target {
+				indices = append(indices, i, j)
+				return indices
+			}
+		}
+	}
 	return nil
 }
