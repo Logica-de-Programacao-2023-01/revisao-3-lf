@@ -7,9 +7,9 @@ package q3
 func ClimbStairs(n int) int {
 	if n <= 2 {
 		return n
-	}
-	degraus := make([]int, n+1)
-	for i := 3; i <= n; i++ {
+	degraus := make(map[int]int, n+1)
+	for i := 2; i <= n; i++ {
+		degraus[0], degraus[1] = 1, 1
 		degraus[i] = degraus[i-1] + degraus[i-2]
 	}
 	return degraus[n]
