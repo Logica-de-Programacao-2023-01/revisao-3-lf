@@ -5,5 +5,12 @@ package q3
 //A cada vez, você pode subir 1 ou 2 degraus. De quantas maneiras distintas você pode subir até o topo?
 
 func ClimbStairs(n int) int {
-	return 0
+	if n <= 2 {
+		return n
+	degraus := make(map[int]int, n+1)
+	for i := 2; i <= n; i++ {
+		degraus[0], degraus[1] = 1, 1
+		degraus[i] = degraus[i-1] + degraus[i-2]
+	}
+	return degraus[n]
 }
